@@ -15,9 +15,9 @@ MonoBehaviour:
   objectsData:
   - <Name>k__BackingField: Cube
     <ID>k__BackingField: 0
-    <Size>k__BackingField: {x: 0, y: 0}
-    <Prefab>k__BackingField: {fileID: 0}
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 2901688264276325809, guid: 71d8e2a2fa89a2844a5b2bd69f9b9d21, type: 3}
   - <Name>k__BackingField: Sphere
-    <ID>k__BackingField: 0
-    <Size>k__BackingField: {x: 0, y: 0}
-    <Prefab>k__BackingField: {fileID: 0}
+    <ID>k__BackingField: 1
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 6608252227186601241, guid: 8db6075ba2390334e8b40f308021b0c9, type: 3}
