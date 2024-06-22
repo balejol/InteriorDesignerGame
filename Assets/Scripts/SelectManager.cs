@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SelectManager : MonoBehaviour
 {
     public GameObject selectedObject;
+    public TextMeshProUGUI objNameText;
+    private BuildingManager buildingManager;
+    public GameObject objUI;
+    public Button colorButton;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        buildingManager = GameObject.Find("BuildingManager").GetComponent<BuildingManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
@@ -42,12 +45,53 @@ public class SelectManager : MonoBehaviour
             obj.AddComponent<Outline>();
         else
             outline.enabled = true;
+        objNameText.text = obj.name;
+        objUI.SetActive(true);
         selectedObject = obj;
     }
 
     private void Deselect()
     {
+        objUI.SetActive(false);
         selectedObject.GetComponent<Outline>().enabled = false;
         selectedObject = null;
+    }
+
+    public void Move()
+    {
+        buildingManager.pendingObject = selectedObject;
+    }
+
+    public void Delete()
+    {
+        GameObject objToDestroy = selectedObject;
+        Deselect();
+        Destroy(objToDestroy);
+    }
+
+    public void ChangeColour()
+    {
+        if (selectedObject == null)
+            return;
+
+        Color randomColor = new Color(Random.value, Random.value, Random.value);
+
+        Renderer renderer = selectedObject.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            renderer.material.color = randomColor;
+        }
+
+        ChangeButtonColor(randomColor);
+    }
+
+    private void ChangeButtonColor(Color color)
+    {
+        ColorBlock cb = colorButton.colors;
+        cb.normalColor = color;
+        cb.selectedColor = color;
+        cb.highlightedColor = color;
+        cb.pressedColor = color;
+        colorButton.colors = cb;
     }
 }
