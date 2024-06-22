@@ -999,7 +999,7 @@ GameObject:
   - component: {fileID: 1063338709}
   - component: {fileID: 1063338708}
   m_Layer: 5
-  m_Name: NoSavedGamePanel_Dialog (1)
+  m_Name: NoSavedGamePanel_Dialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
