@@ -7,8 +7,6 @@ public class BuildingManager : MonoBehaviour
 {
     public GameObject[] objects;
     public GameObject pendingObject;
-    //[SerializeField]
-    //private Material[] materials;
     private Vector3 pos;
 
     private RaycastHit hit;
@@ -27,7 +25,6 @@ public class BuildingManager : MonoBehaviour
     {
         if (pendingObject != null)
         {
-            //UpdateMaterials();
             if (gridOn) {
                 pendingObject.transform.position = new Vector3(
                     RoundToNearestGrid(pos.x),
@@ -39,7 +36,7 @@ public class BuildingManager : MonoBehaviour
                 pendingObject.transform.position = pos;
             }
 
-            if (Input.GetMouseButtonDown(0))// && canPlace)
+            if (Input.GetMouseButtonDown(0))
                 PlaceObject();
             if (Input.GetKeyDown(KeyCode.R))
                 RotateObject();
@@ -48,7 +45,6 @@ public class BuildingManager : MonoBehaviour
 
     public void PlaceObject()
     {
-        //pendingObject.GetComponent<MeshRenderer>().material = materials[2];
         pendingObject = null;
     }
 

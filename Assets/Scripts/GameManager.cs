@@ -4,17 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class SelectManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public GameObject selectedObject;
     public TextMeshProUGUI objNameText;
     private BuildingManager buildingManager;
     public GameObject objUI;
     public Button colorButton;
+    public GameObject menuCanvas;
 
     void Start()
     {
         buildingManager = GameObject.Find("BuildingManager").GetComponent<BuildingManager>();
+        menuCanvas.SetActive(false);
     }
 
     void Update()
@@ -32,6 +34,11 @@ public class SelectManager : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && selectedObject != null) {
             Deselect();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            menuCanvas.SetActive(!menuCanvas.activeSelf);
+        }
+
     }
 
     private void Select(GameObject obj)
